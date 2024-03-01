@@ -40,11 +40,12 @@ def metter_value(request):
 
 def getValuesApi():
     url = base_url + api_key
+    coordinates = EVCHangingLocation.objects.latest('id')
     myobj = {
         "universalAqi": 'true',
         "location": {
-            "latitude": 37.419734,
-            "longitude": -122.0827784
+            "latitude": coordinates.latitude,
+            "longitude": coordinates.longitude
         },
         "extraComputations": [
             "HEALTH_RECOMMENDATIONS",
@@ -79,6 +80,14 @@ def getValuesApi():
         pm10Value=x['pollutants'][3]['concentration']['value'],
         pm10Source=x['pollutants'][3]['additionalInfo']['sources'],
         pm10Effect=x['pollutants'][3]['additionalInfo']['effects'],
+        so2Name=x['pollutants'][4]['fullName'],
+        so2Value=x['pollutants'][4]['concentration']['value'],
+        so2Source=x['pollutants'][4]['additionalInfo']['sources'],
+        so2Effect=x['pollutants'][4]['additionalInfo']['effects'],
+        pm25Name=x['pollutants'][5]['fullName'],
+        pm25Value=x['pollutants'][5]['concentration']['value'],
+        pm25Source=x['pollutants'][5]['additionalInfo']['sources'],
+        pm25Effect=x['pollutants'][5]['additionalInfo']['effects'],
         generalPopulation=x['healthRecommendations']['generalPopulation'],
         heartDiseasePopulation=x['healthRecommendations']['heartDiseasePopulation'],
         children=x['healthRecommendations']['children']

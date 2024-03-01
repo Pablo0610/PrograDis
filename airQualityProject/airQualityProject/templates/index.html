@@ -82,6 +82,62 @@
         <div class="col-md-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-150 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">Temperatura</h3>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="150" height="200" xmlns="http://www.w3.org/2000/svg"
+                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                         focusable="false">
+                        <rect width="100%" height="100%"
+                              fill="rgb({{ responseAPI.red }}, {{ responseAPI.blue }}, {{ responseAPI.green }})"/>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">20 C </text>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-150 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ responseAPI.so2Name }}</h3>
+                    <p class="card-text mb-auto">{{ responseAPI.so2Source }}</p>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="150" height="200" xmlns="http://www.w3.org/2000/svg"
+                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                         focusable="false"><title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"/>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">{{ responseAPI.so2Value }} ppb</text>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-150 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ responseAPI.pm25Name }}</h3>
+                    <p class="card-text mb-auto">{{ responseAPI.pm25Source }}</p>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="150" height="200" xmlns="http://www.w3.org/2000/svg"
+                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                         focusable="false"><title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"/>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">{{ responseAPI.pm25Value }} μg/m3</text>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-150 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">AQI</h3>
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -90,7 +146,7 @@
                          focusable="false">
                         <rect width="100%" height="100%"
                               fill="rgb({{ responseAPI.red }}, {{ responseAPI.blue }}, {{ responseAPI.green }})"/>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-1">{{ responseAPI.aqi }}</text>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">{{ responseAPI.aqi }}</text>
                     </svg>
 
                 </div>
@@ -107,7 +163,7 @@
                          role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                          focusable="false"><title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c"/>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-1">{{ responseAPI.coValue }}</text>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">{{ responseAPI.coValue }} PPB</text>
                     </svg>
 
                 </div>
@@ -124,14 +180,13 @@
                          role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                          focusable="false"><title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c"/>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-1">{{ responseAPI.pm10Value }}</text>
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="fs-3">{{ responseAPI.pm10Value }} μg/m3</text>
                     </svg>
 
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-3">
@@ -170,7 +225,7 @@
         <div class="col-md-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-150 position-relative">
                 <div class="col p-4 d-flex flex-column position-static"
-                     style="background-color:rgb({{ responseAPI.red }},{{ responseAPI.blue }}, {{ responseAPI.green }});">
+                     style="background-color:rgb(255,255,255);">
                     <h3 class="mb-0">{{ responseAPI.category }}</h3>
                 </div>
             </div>
