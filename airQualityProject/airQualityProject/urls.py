@@ -25,4 +25,5 @@ urlpatterns = [
     path('airQualityPage', airQualityPage,name="home"),
     path('get-nearest-station/', views.nearest_station),
     path('metter_value', views.metter_value, name="metter_value"),
+    path('send_mail/', views.send_mail, name="send_mail"),
 ]

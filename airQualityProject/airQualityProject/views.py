@@ -1,10 +1,12 @@
 import json
+import smtplib
+from email.message import EmailMessage
 
 import requests
 from apps.app1.models import EVCHangingLocation, responseAPiQuality
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import reverse, redirect,render
-from django.template import Template, Context
+from django.shortcuts import render
+from django.template import Context
 
 base_url = "https://airquality.googleapis.com/v1/currentConditions:lookup?key="
 api_key = "AIzaSyDveBq8p4Zf7xp1jraj3Y4JRutrnSM47bk"
@@ -15,13 +17,7 @@ def welcome_page(request):
 
 
 def airQualityPage(request):
-    tmp = open(
-        "/home/chrisubuntu/PycharmProjects/airQualityProject/airQualityProject/airQualityProject/templates/index.html")
-    template = Template(tmp.read())
-    tmp.close()
-    context = Context()
-    document = template.render(context)
-    return HttpResponse(document)
+    return render(request, 'index.html')
 
 
 def nearest_station(request):
@@ -35,12 +31,6 @@ def nearest_station(request):
 
 
 def metter_value(request):
-    tmp = open(
-        "/home/chrisubuntu/PycharmProjects/airQualityProject/airQualityProject/airQualityProject/templates/index.html")
-    template = Template(tmp.read())
-    tmp.close()
-    context = Context()
-    document = template.render(context)
     getValuesApi()
     responseAPI = responseAPiQuality.objects.latest('id')
     print(responseAPI.date)
@@ -93,3 +83,19 @@ def getValuesApi():
         heartDiseasePopulation=x['healthRecommendations']['heartDiseasePopulation'],
         children=x['healthRecommendations']['children']
     )
+
+def send_mail(request):
+    # import smtplib
+    msg = EmailMessage()
+    msg['Subject'] = 'Air Quality Pollution'
+    msg['From'] = 'jchristian@gmail.com'
+    msg['To'] = request.GET["email"]
+    msg.set_content('Mensaje de prueba')
+    print(msg)
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.set_debuglevel(1)
+    server.login('jchristian@gmail.com', 'l')  # user & password
+    server.send_message(msg)
+    server.quit()
+    print('successfully sent the mail.')
+    return render(request, 'index.html')

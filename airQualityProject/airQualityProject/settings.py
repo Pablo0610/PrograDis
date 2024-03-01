@@ -54,7 +54,7 @@ ROOT_URLCONF = 'airQualityProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/chrisubuntu/PycharmProjects/airQualityProject/airQualityProject/airQualityProject/templates'],
+        'DIRS': ['/home/chrisubuntu/PycharmProjects/airQualityProject/PrograDis/airQualityProject/airQualityProject/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
